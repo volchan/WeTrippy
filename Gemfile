@@ -20,9 +20,12 @@ gem 'uglifier'
 group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'factory_girl_rails', '~> 4.0'
+  gem 'faker'
   gem 'listen', '~> 3.0.5'
   gem 'pry-byebug'
   gem 'pry-rails'
+  gem 'rspec-rails'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
