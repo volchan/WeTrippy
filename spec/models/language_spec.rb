@@ -5,6 +5,11 @@ RSpec.describe Language, type: :model do
     expect(FactoryGirl.build(:language)).to be_valid
   end
 
+  it 'has_many user_languages' do
+    t = Language.reflect_on_association(:user_languages)
+    expect(t.macro).to eq(:has_many)
+  end
+
   describe '#name' do
     it 'can\'t be blank' do
       expect(FactoryGirl.build(:language, name: nil)).to_not be_valid

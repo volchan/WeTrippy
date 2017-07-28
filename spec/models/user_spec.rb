@@ -5,9 +5,14 @@ RSpec.describe User, type: :model do
     expect(FactoryGirl.build(:user)).to be_valid
   end
 
-  it 'should belongs_to country' do
+  it 'belongs_to country' do
     t = User.reflect_on_association(:country)
     expect(t.macro).to eq(:belongs_to)
+  end
+
+  it 'has_many user_languages' do
+    t = User.reflect_on_association(:user_languages)
+    expect(t.macro).to eq(:has_many)
   end
 
   describe '#email' do

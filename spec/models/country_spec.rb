@@ -5,7 +5,7 @@ RSpec.describe Country, type: :model do
     expect(FactoryGirl.build(:country)).to be_valid
   end
 
-  it "should have many users" do
+  it 'has_many users' do
     t = Country.reflect_on_association(:users)
     expect(t.macro).to eq(:has_many)
   end
