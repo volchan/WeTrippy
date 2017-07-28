@@ -4,6 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :birth_date, presence: true
+  validates :phone, presence: true
+  validates :description, length: { minimum: 150, maximum: 400, allow_blank: true }
   validate :password_complexity
 
   belongs_to :country

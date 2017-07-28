@@ -24,5 +24,9 @@ RSpec.describe Country, type: :model do
     it 'can\'t be blank' do
       expect(FactoryGirl.build(:country, slug: nil)).to_not be_valid
     end
+
+    it '"FR" is a valid slug' do
+      expect(FactoryGirl.build(:country, slug: 'FR')).to be_valid
+    end
   end
 end
