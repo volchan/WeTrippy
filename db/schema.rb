@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170829121650) do
+ActiveRecord::Schema.define(version: 20170829155643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,9 +52,6 @@ ActiveRecord::Schema.define(version: 20170829121650) do
     t.bigint "category_id"
     t.boolean "solidary"
     t.integer "slots"
-    t.string "address"
-    t.float "lat"
-    t.float "long"
     t.string "title"
     t.text "description"
     t.integer "type"
@@ -78,6 +75,11 @@ ActiveRecord::Schema.define(version: 20170829121650) do
     t.bigint "experience_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "address"
+    t.float "lat"
+    t.float "long"
+    t.bigint "country_id"
+    t.index ["country_id"], name: "index_steps_on_country_id"
     t.index ["experience_id"], name: "index_steps_on_experience_id"
   end
 
@@ -123,6 +125,7 @@ ActiveRecord::Schema.define(version: 20170829121650) do
   add_foreign_key "exp_languages", "experiences"
   add_foreign_key "exp_languages", "languages"
   add_foreign_key "experiences", "categories"
+  add_foreign_key "steps", "countries"
   add_foreign_key "steps", "experiences"
   add_foreign_key "user_languages", "languages"
   add_foreign_key "user_languages", "users"
