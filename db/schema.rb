@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170829113033) do
+ActiveRecord::Schema.define(version: 20170829121650) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "appointments", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "experience_id"
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["experience_id"], name: "index_appointments_on_experience_id"
+    t.index ["user_id"], name: "index_appointments_on_user_id"
+  end
 
   create_table "categories", id: :serial, force: :cascade do |t|
     t.string "name"
@@ -38,7 +48,7 @@ ActiveRecord::Schema.define(version: 20170829113033) do
   end
 
   create_table "experiences", force: :cascade do |t|
-    t.integer "host_id"
+    t.bigint "host_id"
     t.bigint "category_id"
     t.boolean "solidary"
     t.integer "slots"
@@ -52,6 +62,7 @@ ActiveRecord::Schema.define(version: 20170829113033) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_experiences_on_category_id"
+    t.index ["host_id"], name: "index_experiences_on_host_id"
   end
 
   create_table "languages", id: :serial, force: :cascade do |t|
@@ -107,6 +118,8 @@ ActiveRecord::Schema.define(version: 20170829113033) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "appointments", "experiences"
+  add_foreign_key "appointments", "users"
   add_foreign_key "exp_languages", "experiences"
   add_foreign_key "exp_languages", "languages"
   add_foreign_key "experiences", "categories"
