@@ -10,6 +10,11 @@ RSpec.describe Country, type: :model do
     expect(t.macro).to eq(:has_many)
   end
 
+  it 'has_many steps' do
+    t = Country.reflect_on_association(:steps)
+    expect(t.macro).to eq(:has_many)
+  end
+
   describe '#name' do
     it 'can\'t be blank' do
       expect(FactoryGirl.build(:country, name: nil)).to_not be_valid

@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :appointment do
-    user nil
-    experience nil
+    user
+    experience
     status 1
   end
 end

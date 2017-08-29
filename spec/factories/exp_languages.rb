@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :exp_language do
-    user nil
-    language nil
+    experience
+    language
   end
 end

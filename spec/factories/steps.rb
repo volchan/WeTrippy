@@ -1,6 +1,11 @@
 FactoryGirl.define do
   factory :step do
-    start_at "2017-08-29 13:30:33"
-    end_at "2017-08-29 13:30:33"
+    country
+    experience
+    start_at Time.zone.now + (1..5).to_a.sample.minutes
+    end_at Time.zone.now + (6..10).to_a.sample.minutes
+    address "#{Faker::Address.street_address} #{Faker::Address.zip_code} #{Faker::Address.city}"
+    lat Faker::Address.latitude
+    long Faker::Address.longitude
   end
 end

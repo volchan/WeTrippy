@@ -16,7 +16,7 @@ RSpec.describe User, type: :model do
   end
 
   describe '#email' do
-    it "should have an email" do
+    it 'should have an email' do
       expect(FactoryGirl.build(:user, email: nil)).to_not be_valid
     end
 
@@ -84,16 +84,16 @@ RSpec.describe User, type: :model do
 
     describe 'should be greater than 150 character' do
       it '149 character is not valid' do
-        expect(FactoryGirl.build(:user, description: "#{'a' * 149}")).to_not be_valid
+        expect(FactoryGirl.build(:user, description: 'a' * 149)).to_not be_valid
       end
       it '150 character is valid' do
-        expect(FactoryGirl.build(:user, description: "#{'a' * 150}")).to be_valid
+        expect(FactoryGirl.build(:user, description: 'a' * 150)).to be_valid
       end
       it 'up to 400 character is valid' do
-        expect(FactoryGirl.build(:user, description: "#{'a' * 400}")).to be_valid
+        expect(FactoryGirl.build(:user, description: 'a' * 400)).to be_valid
       end
       it 'more than 400 character is not valid' do
-        expect(FactoryGirl.build(:user, description: "#{'a' * 401}")).to_not be_valid
+        expect(FactoryGirl.build(:user, description: 'a' * 401)).to_not be_valid
       end
     end
   end
