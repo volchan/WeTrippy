@@ -1,0 +1,21 @@
+- email: contact@volchan.fr
+  password: Azerty33!
+  first_name: stéphane
+  last_name: de la torre
+  country_id: 5
+  sex: 0
+  privileges: 3
+- email: bechep40@gmail.com
+  password: Azerty33!
+  first_name: pierre
+  last_name: bêche
+  country_id: 5
+  sex: 0
+  privileges: 2
+- email: eicher.cedric@gmail.com
+  password: Azerty33!
+  first_name: cédric
+  last_name: eicher
+  country_id: 5
+  sex: 0
+  privileges: 2

@@ -17,6 +17,8 @@ class User < ApplicationRecord
   validates :description, length: { minimum: 150, maximum: 400, allow_blank: true }
   validate :password_complexity
 
+  enum privileges: { user: 0, moderator: 1, admin: 2, super_admin: 3 }
+
   def password_complexity
     return unless password.present? && !password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(_|[^\w])).+$/)
     errors.add :password, 'must be 6 character long, must include at least one lowercase letter, one uppercase letter, one digit and one special character'
