@@ -2,11 +2,12 @@ class Step < ApplicationRecord
   belongs_to :experience
   belongs_to :country
 
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+
   validates :start_at, presence: true
   validates :end_at, presence: true
   validates :address, presence: true
-  validates :lat, presence: true
-  validates :long, presence: true
 
   validate :check_start_time
   validate :check_end_time

@@ -5,7 +5,5 @@ FactoryGirl.define do
     start_at Time.zone.now + (1..5).to_a.sample.minutes
     end_at Time.zone.now + (6..10).to_a.sample.minutes
     address "#{Faker::Address.street_address} #{Faker::Address.zip_code} #{Faker::Address.city}"
-    lat Faker::Address.latitude
-    long Faker::Address.longitude
   end
 end
