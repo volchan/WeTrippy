@@ -28,38 +28,25 @@ end
 puts 'Done!'
 puts '-' * 20
 
-puts '> seeding admins'
-users_file = Rails.root.join('db', 'seeds', 'users.yml')
-users_yml = YAML.load_file(users_file)
+puts '> seeding users'
+users_yml = YAML.load(ERB.new(File.read("db/seeds/users.yml")).result)
 users_yml.each do |user|
-  User.new(user).save!(validate: false)
-  user = User.last
-  puts "> seeded: #{user.id} - #{user.first_name} #{user.last_name}"
+  user = User.new(user)
+  if user.email.blank?
+    username = "#{user.first_name}#{user.last_name}"
+    user.email = Faker::Internet.free_email(username)
+  end
+  user.save!
+  puts "> seeded: #{user.id} - #{user.privileges} - #{user.first_name} #{user.last_name} - #{user.address} - #{user.email}"
 end
 puts 'Done!'
 puts '-' * 20
 
-puts '> seeding random users'
-countries = Country.all
-20.times do
-  user_params = {
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    birth_date: Time.zone.at(0 + rand * (Time.zone.now.to_f - 0.to_f)).to_date,
-    country: countries.sample,
-    phone: Faker::PhoneNumber.cell_phone,
-    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proiden.',
-    address: "#{Faker::Address.street_address} #{Faker::Address.zip_code} #{Faker::Address.city}",
-    sex: %w[0 1].sample.to_i,
-    hobbies: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    privileges: 0,
-    password: 'RubyRules33!'
-  }
-  user = User.new(user_params)
-  username = "#{user.first_name}#{user.last_name}"
-  user.email = Faker::Internet.free_email(username)
-  user.save!
-  puts "> seeded: #{user.id} - #{user.first_name} #{user.last_name} - #{user.address} - #{user.email}"
+puts '> adding user languages'
+languages = Language.all
+User.all.each do |user|
+  UserLanguage.create!(user: user, language: languages.sample)
+  puts "> seeded: #{user.id} - #{user.first_name} #{user.last_name} - #{user.user_languages.first.language.slug} - #{user.user_languages.first.language.name}"
 end
 puts 'Done!'
 puts '-' * 20
@@ -71,6 +58,60 @@ categories_yml = YAML.load_file(categories_file)
 categories_yml.each do |category|
   category = Category.create!(category)
   puts "> seeded: #{category.id} - #{category.name}"
+end
+puts 'Done!'
+puts '-' * 20
+
+puts '> seeding experiences'
+experiences_yml = YAML.load(ERB.new(File.read("db/seeds/experiences.yml")).result)
+experiences_yml.each do |experience|
+  new_experience = Experience.create!(experience)
+  puts "> seeded: #{new_experience.id} - #{new_experience.title} - #{new_experience.category.name} - #{new_experience.slots}"
+
+  puts '>> seeding exp_language'
+  rand(1..2).times do
+    ExpLanguage.create!(experience: new_experience, language_id: rand(1..185))
+  end
+  new_experience.exp_languages.each do |exp_language|
+    puts ">> seeded: #{exp_language.language.slug} - #{exp_language.language.name}"
+  end
+  puts '>> Done!'
+  puts '-' * 20
+
+  puts '>> seeding steps'
+  rand(1..5).times do |n|
+    case n
+    when 0
+      start_at = Time.zone.now + rand(1..5).days
+      end_at = start_at + rand(1..5).hours
+    when 1
+      start_at = Time.zone.now + rand(6..10).days
+      end_at = start_at + rand(1..5).hours
+    when 2
+      start_at = Time.zone.now + rand(11..15).days
+      end_at = start_at + rand(1..5).hours
+    when 3
+      start_at = Time.zone.now + rand(16..20).days
+      end_at = start_at + rand(1..5).hours
+    when 4
+      start_at = Time.zone.now + rand(21..25).days
+      end_at = start_at + rand(1..5).hours
+    when 5
+      start_at = Time.zone.now + rand(26..30).days
+      end_at = start_at + rand(1..5).hours
+    end
+    new_step = Step.create!(
+      experience: new_experience,
+      start_at: start_at,
+      end_at: end_at,
+      address: "#{Faker::Address.street_address} #{Faker::Address.zip_code} #{Faker::Address.city}",
+      lat: Faker::Address.latitude,
+      long: Faker::Address.longitude
+    )
+    puts ">> seeded: #{new_step.id} - #{new_step.start_at} - #{new_step.end_at} - #{new_step.address}"
+  end
+  puts '>> Done!'
+  puts '-' * 20
 end
 puts 'Done!'
 puts '-' * 20

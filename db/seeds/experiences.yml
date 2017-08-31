@@ -1,9 +1,98 @@
-experience:
-  title: 'Mission Art Collective'
-  description: 'DESCRIPTION EXPERIENCE Mission Art Collective'
-experience:
-  title: 'Fleurs à la Villa Borghese'
-  description: 'DESCRIPTION EXPERIENCE Fleurs à la Villa Borghese'
-experience:
-  title: 'Mexico Unearthed'
-  description: 'DESCRIPTION EXPERIENCE Mexico Unearthed'
+- host_id: <%= rand(1..3) %>
+  category_id: <%= rand(1..14) %>
+  solidary: <%= %w(true false false false false).sample %>
+  slots: <%= rand(1..10) %>
+  title:  <%= Faker::Book.title %>
+  description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proiden.'
+  slogan: <%= Faker::Company.catch_phrase %>
+- host_id: <%= rand(1..3) %>
+  category_id: <%= rand(1..14) %>
+  solidary: <%= %w(true false false false false).sample %>
+  slots: <%= rand(1..10) %>
+  title:  <%= Faker::Book.title %>
+  description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proiden.'
+  slogan: <%= Faker::Company.catch_phrase %>
+- host_id: <%= rand(1..3) %>
+  category_id: <%= rand(1..14) %>
+  solidary: <%= %w(true false false false false).sample %>
+  slots: <%= rand(1..10) %>
+  title:  <%= Faker::Book.title %>
+  description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proiden.'
+  slogan: <%= Faker::Company.catch_phrase %>
+- host_id: <%= rand(1..3) %>
+  category_id: <%= rand(1..14) %>
+  solidary: <%= %w(true false false false false).sample %>
+  slots: <%= rand(1..10) %>
+  title:  <%= Faker::Book.title %>
+  description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proiden.'
+  slogan: <%= Faker::Company.catch_phrase %>
+- host_id: <%= rand(1..3) %>
+  category_id: <%= rand(1..14) %>
+  solidary: <%= %w(true false false false false).sample %>
+  slots: <%= rand(1..10) %>
+  title:  <%= Faker::Book.title %>
+  description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proiden.'
+  slogan: <%= Faker::Company.catch_phrase %>
+- host_id: <%= rand(1..3) %>
+  category_id: <%= rand(1..14) %>
+  solidary: <%= %w(true false false false false).sample %>
+  slots: <%= rand(1..10) %>
+  title:  <%= Faker::Book.title %>
+  description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proiden.'
+  slogan: <%= Faker::Company.catch_phrase %>
+- host_id: <%= rand(1..3) %>
+  category_id: <%= rand(1..14) %>
+  solidary: <%= %w(true false false false false).sample %>
+  slots: <%= rand(1..10) %>
+  title:  <%= Faker::Book.title %>
+  description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proiden.'
+  slogan: <%= Faker::Company.catch_phrase %>
+- host_id: <%= rand(1..3) %>
+  category_id: <%= rand(1..14) %>
+  solidary: <%= %w(true false false false false).sample %>
+  slots: <%= rand(1..10) %>
+  title:  <%= Faker::Book.title %>
+  description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proiden.'
+  slogan: <%= Faker::Company.catch_phrase %>
+- host_id: <%= rand(1..3) %>
+  category_id: <%= rand(1..14) %>
+  solidary: <%= %w(true false false false false).sample %>
+  slots: <%= rand(1..10) %>
+  title:  <%= Faker::Book.title %>
+  description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proiden.'
+  slogan: <%= Faker::Company.catch_phrase %>
+- host_id: <%= rand(1..3) %>
+  category_id: <%= rand(1..14) %>
+  solidary: <%= %w(true false false false false).sample %>
+  slots: <%= rand(1..10) %>
+  title:  <%= Faker::Book.title %>
+  description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proiden.'
+  slogan: <%= Faker::Company.catch_phrase %>
+- host_id: <%= rand(1..3) %>
+  category_id: <%= rand(1..14) %>
+  solidary: <%= %w(true false false false false).sample %>
+  slots: <%= rand(1..10) %>
+  title:  <%= Faker::Book.title %>
+  description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proiden.'
+  slogan: <%= Faker::Company.catch_phrase %>
+- host_id: <%= rand(1..3) %>
+  category_id: <%= rand(1..14) %>
+  solidary: <%= %w(true false false false false).sample %>
+  slots: <%= rand(1..10) %>
+  title:  <%= Faker::Book.title %>
+  description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proiden.'
+  slogan: <%= Faker::Company.catch_phrase %>
+- host_id: <%= rand(1..3) %>
+  category_id: <%= rand(1..14) %>
+  solidary: <%= %w(true false false false false).sample %>
+  slots: <%= rand(1..10) %>
+  title:  <%= Faker::Book.title %>
+  description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proiden.'
+  slogan: <%= Faker::Company.catch_phrase %>
+- host_id: <%= rand(1..3) %>
+  category_id: <%= rand(1..14) %>
+  solidary: <%= %w(true false false false false).sample %>
+  slots: <%= rand(1..10) %>
+  title:  <%= Faker::Book.title %>
+  description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proiden.'
+  slogan: <%= Faker::Company.catch_phrase %>
