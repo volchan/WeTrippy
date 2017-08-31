@@ -5,7 +5,6 @@ Country.destroy_all
 Language.destroy_all
 
 puts '> seeding countries'
-
 I18nData.countries('FR').each do |country|
   country = Country.create!(
     slug: country[0],
@@ -17,7 +16,6 @@ puts 'Done!'
 puts '-' * 20
 
 puts '> seeding languages'
-
 I18nData.languages('FR').each do |language|
   language = Language.create!(
     slug: language[0],
@@ -79,6 +77,7 @@ experiences_yml.each do |experience|
   puts '-' * 20
 
   puts '>> seeding steps'
+  addresses = YAML.load(ERB.new(File.read("db/seeds/addresses.yml")).result)
   rand(1..5).times do |n|
     case n
     when 0
@@ -104,9 +103,7 @@ experiences_yml.each do |experience|
       experience: new_experience,
       start_at: start_at,
       end_at: end_at,
-      address: "#{Faker::Address.street_address} #{Faker::Address.zip_code} #{Faker::Address.city}",
-      lat: Faker::Address.latitude,
-      long: Faker::Address.longitude
+      address: addresses.sample,
     )
     puts ">> seeded: #{new_step.id} - #{new_step.start_at} - #{new_step.end_at} - #{new_step.address}"
   end

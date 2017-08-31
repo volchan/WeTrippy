@@ -24,7 +24,7 @@ RSpec.describe Experience, type: :model do
     t = Experience.reflect_on_association(:host)
     expect(t.macro).to eq(:belongs_to)
   end
-  
+
   it 'belongs_to category' do
     t = Experience.reflect_on_association(:category)
     expect(t.macro).to eq(:belongs_to)
@@ -130,16 +130,6 @@ RSpec.describe Experience, type: :model do
           FactoryGirl.build(:experience, description: 'a' * 801)
         ).to_not be_valid
       end
-    end
-  end
-
-  describe 'type' do
-    it 'can\'t be blank' do
-      expect(FactoryGirl.build(:experience, type: nil)).to_not be_valid
-    end
-
-    it 'should have a valid type' do
-      expect(FactoryGirl.build(:experience, type: 1)).to be_valid
     end
   end
 

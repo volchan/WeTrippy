@@ -43,7 +43,6 @@ RSpec.describe Step, type: :model do
     describe 'should have a valid start_at' do
       before do
         Timecop.freeze
-        p Time.zone.now
       end
 
       after do
@@ -97,26 +96,6 @@ RSpec.describe Step, type: :model do
           address: "#{Faker::Address.street_address} #{Faker::Address.zip_code} #{Faker::Address.city}"
         )
       ).to be_valid
-    end
-  end
-
-  describe '#lat' do
-    it 'can\'t be blank' do
-      expect(FactoryGirl.build(:step, lat: nil)).to_not be_valid
-    end
-
-    it 'should have a valid lat' do
-      expect(FactoryGirl.build(:step, lat: Faker::Address.latitude)).to be_valid
-    end
-  end
-
-  describe '#long' do
-    it 'can\'t be blank' do
-      expect(FactoryGirl.build(:step, long: nil)).to_not be_valid
-    end
-
-    it 'should have a valid long' do
-      expect(FactoryGirl.build(:step, long: Faker::Address.longitude)).to be_valid
     end
   end
 end
