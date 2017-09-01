@@ -63,15 +63,16 @@ puts '-' * 20
 
 puts '> seeding experiences'
 experiences_yml = YAML.load(ERB.new(File.read("db/seeds/experiences.yml")).result)
+experiences_covers = YAML.load(File.read("db/seeds/exp_covers.yml"))
+counter = 0
 experiences_yml.each do |experience|
   new_experience = Experience.create!(experience)
+  new_experience.send(:cover_url=, experiences_covers[counter], use_filename: true, folder: "WeTrippy/Experiences/Cover/#{new_experience.id}/")
   puts "> seeded: #{new_experience.id} - #{new_experience.title} - #{new_experience.category.name} - #{new_experience.slots}"
 
   puts '>> seeding exp_language'
   rand(1..2).times do
-    ExpLanguage.create!(experience: new_experience, language_id: rand(1..185))
-  end
-  new_experience.exp_languages.each do |exp_language|
+    exp_language = ExpLanguage.create!(experience: new_experience, language_id: rand(1..185))
     puts ">> seeded: #{exp_language.language.slug} - #{exp_language.language.name}"
   end
   puts '>> Done!'
@@ -110,6 +111,7 @@ experiences_yml.each do |experience|
   end
   puts '>> Done!'
   puts '-' * 20
+  counter += 1
 end
 puts 'Done!'
 puts '-' * 20
