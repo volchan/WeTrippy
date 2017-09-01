@@ -35,7 +35,7 @@ users_yml.each do |user|
     user.email = Faker::Internet.free_email(username)
   end
   user.save!
-  user.send(:avatar_url=, Faker::Avatar.image, use_filename: true, folder: "WeTrippy/Users/#{user.id}/")
+  user.send(:avatar_url=, Faker::Avatar.image, folder: "WeTrippy/Users/#{user.id}/")
   puts "> seeded: #{user.id} - #{user.privileges} - #{user.first_name} #{user.last_name} - #{user.address} - #{user.email}"
 end
 puts 'Done!'
@@ -67,7 +67,10 @@ experiences_covers = YAML.load(File.read("db/seeds/exp_covers.yml"))
 counter = 0
 experiences_yml.each do |experience|
   new_experience = Experience.create!(experience)
-  new_experience.send(:cover_url=, experiences_covers[counter], use_filename: true, folder: "WeTrippy/Experiences/Cover/#{new_experience.id}/")
+  new_experience.send(:cover_url=, experiences_covers[counter], folder: "WeTrippy/Experiences/Cover/#{new_experience.id}/")
+
+  unsplash_photos = %w(https://unsplash.it/800/600 https://unsplash.it/800/600 https://unsplash.it/800/600 https://unsplash.it/800/600)
+  new_experience.send(:photo_urls=, unsplash_photos, folder: "WeTrippy/Experiences/desc_photos/#{new_experience.id}/")
   puts "> seeded: #{new_experience.id} - #{new_experience.title} - #{new_experience.category.name} - #{new_experience.slots}"
 
   puts '>> seeding exp_language'
