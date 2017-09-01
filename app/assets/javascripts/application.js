@@ -1,6 +1,6 @@
-//= require jquery
-//= require jquery_ujs
-//= require bootstrap-sprockets
+//= require jquery3
+//= require popper
+//= require bootstrap
 //= require underscore
 //= require gmaps/google
 //= require jquery-fileupload/basic
