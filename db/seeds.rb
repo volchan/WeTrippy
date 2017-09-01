@@ -35,6 +35,7 @@ users_yml.each do |user|
     user.email = Faker::Internet.free_email(username)
   end
   user.save!
+  user.send(:avatar_url=, Faker::Avatar.image, use_filename: true, folder: "WeTrippy/Users/#{user.id}/")
   puts "> seeded: #{user.id} - #{user.privileges} - #{user.first_name} #{user.last_name} - #{user.address} - #{user.email}"
 end
 puts 'Done!'

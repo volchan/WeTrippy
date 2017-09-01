@@ -17,6 +17,8 @@ class User < ApplicationRecord
   validates :description, length: { minimum: 150, maximum: 400, allow_blank: true }
   validate :password_complexity
 
+  has_attachment :avatar
+
   enum privileges: { user: 0, moderator: 1, admin: 2, super_admin: 3 }
 
   def password_complexity
