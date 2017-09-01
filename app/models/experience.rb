@@ -10,4 +10,7 @@ class Experience < ApplicationRecord
   validates :title, presence: true
   validates :description, length: { minimum: 200, maximum: 800 }
   validates :slogan, length: { minimum: 1, maximum: 60 }
+
+  has_attachment :cover_photo
+  has_attachments :photos, maximum: 4
 end
