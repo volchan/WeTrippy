@@ -1,20 +1,21 @@
 source 'https://rubygems.org'
 ruby '2.3.3'
 
+gem 'attachinary', github: 'assembler/attachinary'
+gem 'cloudinary'
+gem "coffee-rails"
 gem 'devise'
 gem 'figaro'
+gem 'geocoder'
+gem "gmaps4rails"
+gem 'i18n_data'
 gem 'jbuilder', '~> 2.0'
+gem 'jquery-fileupload-rails'
 gem 'pg'
+gem 'phony_rails'
 gem 'puma'
 gem 'rails'
 gem 'redis'
-gem 'i18n_data'
-gem 'geocoder'
-gem "coffee-rails"
-gem "gmaps4rails"
-gem 'cloudinary'
-gem 'attachinary', github: 'assembler/attachinary'
-gem 'jquery-fileupload-rails'
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"

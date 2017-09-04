@@ -19,6 +19,8 @@ class User < ApplicationRecord
 
   has_attachment :avatar
 
+  phony_normalize :phone, default_country_code: 'FR'
+
   enum privileges: { user: 0, moderator: 1, admin: 2, super_admin: 3 }
 
   def password_complexity
