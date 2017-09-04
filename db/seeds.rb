@@ -26,17 +26,38 @@ end
 puts 'Done!'
 puts '-' * 20
 
-puts '> seeding users'
+puts '> seeding admin users'
 users_yml = YAML.load(ERB.new(File.read("db/seeds/users.yml")).result)
 users_yml.each do |user|
   user = User.new(user)
-  if user.email.blank?
-    username = "#{user.first_name}#{user.last_name}"
-    user.email = Faker::Internet.free_email(username)
-  end
   user.save!
-  user.send(:avatar_url=, Faker::Avatar.image, folder: "WeTrippy/Users/#{user.id}/")
+  user.send(:avatar_url=, Faker::Avatar.image, folder: "WeTrippy/Users/#{user.id}")
   puts "> seeded: #{user.id} - #{user.privileges} - #{user.first_name} #{user.last_name} - #{user.address} - #{user.email}"
+end
+puts 'Done!'
+puts '-' * 20
+
+puts '> seeding randmon users'
+20.times do
+  random_user_call = RestClient.get('https://randomuser.me/api/?nat=fr')
+  parsed_random_user_call = JSON.parse(random_user_call, object_class: OpenStruct)
+  user_data = parsed_random_user_call.results.first
+  new_user  = User.create!(
+    first_name: user_data.name.first,
+    last_name: user_data.name.last,
+    email: user_data.email,
+    birth_date: user_data.dob,
+    country_id: (1..249).to_a.sample,
+    phone: user_data.cell,
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proiden.',
+    address: "#{user_data.location.street} #{user_data.location.postcode} #{user_data.location.city}",
+    sex: %w[0 1].sample.to_i,
+    hobbies: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    privileges: 0,
+    password: 'RubyRules33!'
+  )
+  new_user.send(:avatar_url=, user_data.picture.medium, folder: "WeTrippy/Users/#{new_user.id}")
+  puts "> seeded: #{new_user.id} - #{new_user.privileges} - #{new_user.first_name} #{new_user.last_name} - #{new_user.address} - #{new_user.email}"
 end
 puts 'Done!'
 puts '-' * 20
