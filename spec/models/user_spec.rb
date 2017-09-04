@@ -16,7 +16,7 @@ RSpec.describe User, type: :model do
   end
 
   describe '#email' do
-    it 'should have an email' do
+    it 'can\'t be blank' do
       expect(FactoryGirl.build(:user, email: nil)).to_not be_valid
     end
 
@@ -30,7 +30,7 @@ RSpec.describe User, type: :model do
   end
 
   describe '#password' do
-    it 'should have a password' do
+    it 'can\'t be blank' do
       expect(FactoryGirl.build(:user, password: nil)).to_not be_valid
     end
 
@@ -48,7 +48,7 @@ RSpec.describe User, type: :model do
   end
 
   describe '#first_name' do
-    it "should have a first_name" do
+    it 'can\'t be blank' do
       expect(FactoryGirl.build(:user, first_name: nil)).to_not be_valid
     end
 
@@ -58,7 +58,7 @@ RSpec.describe User, type: :model do
   end
 
   describe '#last_name' do
-    it "should have a last_name" do
+    it 'can\'t be blank' do
       expect(FactoryGirl.build(:user, last_name: nil)).to_not be_valid
     end
 
@@ -68,7 +68,7 @@ RSpec.describe User, type: :model do
   end
 
   describe '#birth_date' do
-    it 'should have a birth_date' do
+    it 'can\'t be blank' do
       expect(FactoryGirl.build(:user, birth_date: nil)).to_not be_valid
     end
 
@@ -77,8 +77,44 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe '#description'do
-    it 'can be blank'  do
+  describe '#phone' do
+    it 'can\'t be blank' do
+      expect(FactoryGirl.build(:user, phone: nil)).to_not be_valid
+    end
+
+    describe 'should have a valid phone number' do
+      it '"1234567890" is not valid' do
+        expect(FactoryGirl.build(:user, phone: '1234567890')).to_not be_valid
+      end
+
+      it '"123456789" is valid' do
+        expect(FactoryGirl.build(:user, phone: '123456789')).to be_valid
+      end
+
+      it '"06/85/95/42/96" is valid' do
+        expect(FactoryGirl.build(:user, phone: '06/85/95/42/96')).to be_valid
+      end
+
+      it '"06.85.95.42.96" is valid' do
+        expect(FactoryGirl.build(:user, phone: '06.85.95.42.96')).to be_valid
+      end
+
+      it '"06-85-95-42-96" is valid' do
+        expect(FactoryGirl.build(:user, phone: '06-85-95-42-96')).to be_valid
+      end
+
+      it '"06 85 95 42 96" is valid' do
+        expect(FactoryGirl.build(:user, phone: '06 85 95 42 96')).to be_valid
+      end
+
+      it '"0123456789" is valid' do
+        expect(FactoryGirl.build(:user, phone: '0123456789')).to be_valid
+      end
+    end
+  end
+
+  describe '#description' do
+    it 'can be blank' do
       expect(FactoryGirl.build(:user, description: nil)).to be_valid
     end
 

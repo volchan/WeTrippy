@@ -8,6 +8,8 @@ class Experience < ApplicationRecord
 
   validates :slots, presence: true, numericality: true
   validates :title, presence: true
+  validates :host, presence: true
+  validates :category, presence: true
   validates :description, length: { minimum: 200, maximum: 800 }
   validates :slogan, length: { minimum: 1, maximum: 60 }
 

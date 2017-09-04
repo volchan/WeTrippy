@@ -67,7 +67,6 @@ RSpec.describe Step, type: :model do
     describe 'should have a valid end_at' do
       before do
         Timecop.freeze
-        p Time.zone.now
       end
 
       after do
