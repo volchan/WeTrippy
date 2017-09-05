@@ -11,6 +11,7 @@ gem "gmaps4rails"
 gem 'i18n_data'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-fileupload-rails'
+gem 'money-rails'
 gem 'pg'
 gem 'phony_rails'
 gem 'puma'

@@ -1,4 +1,7 @@
 require 'rails_helper'
+require 'money-rails/test_helpers'
+
+include MoneyRails::TestHelpers
 
 RSpec.describe Experience, type: :model do
   Faker::Config.locale = 'fr'
@@ -28,6 +31,10 @@ RSpec.describe Experience, type: :model do
   it 'belongs_to category' do
     t = Experience.reflect_on_association(:category)
     expect(t.macro).to eq(:belongs_to)
+  end
+
+  it 'should monetize' do
+    is_expected.to monetize(:price)
   end
 
   describe '#host' do
