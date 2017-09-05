@@ -1,20 +1,29 @@
 .exp-card {
   height: 450px;
   margin: 10px;
-  position: relative;
-  color: #fafafa;
+  display: flex;
+  flex-direction: column;
   &-cover {
+    flex: 9;
     height: 100%;
     width: 100%;
     background-size: cover;
+    background-position: center;
   }
   &-infos {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    font-size: 15px;
+    flex: 1;
+    color: #484848;
+    font-size: 0.938rem; /* 15/16 */
+    font-weight: 300;
     p {
       margin: 0;
+    }
+    &-price {
+      font-weight: 700;
+      margin-right: 0.25rem; /* 4/16 */
+    }
+    .rating-star {
+      width: 1rem;
     }
   }
 }
