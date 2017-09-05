@@ -15,4 +15,6 @@ class Experience < ApplicationRecord
 
   has_attachment :cover
   has_attachments :photos, maximum: 4
+
+  monetize :price_cents
 end
