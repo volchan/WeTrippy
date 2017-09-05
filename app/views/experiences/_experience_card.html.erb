@@ -1,0 +1,7 @@
+<div class="exp-card">
+  <div class="exp-card-cover" style="background-image: linear-gradient(rgba(0,0,0,0) 50%, rgba(0,0,0,0.9) 100%), url(<%= cl_image_path experience.cover.path %>)"></div>
+  <div class="exp-card-infos">
+    <p><span><%= cl_image_tag experience.host.avatar.path, class: 'avatar-small' %></span> <%= experience.host.full_name %></p>
+    <p><%= experience.title %></p>
+  </div>
+</div>

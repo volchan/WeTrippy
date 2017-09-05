@@ -27,4 +27,8 @@ class User < ApplicationRecord
     return unless password.present? && !password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(_|[^\w])).+$/)
     errors.add :password, 'must be 6 character long, must include at least one lowercase letter, one uppercase letter, one digit and one special character'
   end
+
+  def full_name
+    "#{first_name.capitalize} #{last_name.upcase}"
+  end
 end

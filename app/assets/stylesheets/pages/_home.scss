@@ -1,1 +1,23 @@
-// Specific CSS for your home-page
+.home {
+  width: 100%;
+  &-banner {
+    min-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url('https://images.unsplash.com/photo-1452421822248-d4c2b47f0c81');
+    background-size: cover;
+    background-position: center;
+    color: #fafafa;
+    &-logo {
+      font-family: $headers-font;
+      font-size: 6.875rem; /* 110/16 */
+    }
+    &-slogan {
+      font-size: 1.563rem; /* 25/16 */
+    }
+  }
+  &-top-exp {
+  }
+}
