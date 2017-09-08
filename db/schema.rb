@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170905132937) do
+ActiveRecord::Schema.define(version: 20170908124808) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,17 @@ ActiveRecord::Schema.define(version: 20170905132937) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "experience_id"
+    t.integer "rating"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["experience_id"], name: "index_comments_on_experience_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "countries", id: :serial, force: :cascade do |t|
@@ -138,6 +149,8 @@ ActiveRecord::Schema.define(version: 20170905132937) do
 
   add_foreign_key "appointments", "experiences"
   add_foreign_key "appointments", "users"
+  add_foreign_key "comments", "experiences"
+  add_foreign_key "comments", "users"
   add_foreign_key "exp_languages", "experiences"
   add_foreign_key "exp_languages", "languages"
   add_foreign_key "experiences", "categories"

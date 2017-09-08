@@ -5,6 +5,17 @@ RSpec.describe Step, type: :model do
     expect(FactoryGirl.build(:step)).to be_valid
   end
 
+  it 'belongs_to experience' do
+    t = Step.reflect_on_association(:experience)
+    expect(t.macro).to eq(:belongs_to)
+  end
+
+  it 'belongs_to country' do
+    t = Step.reflect_on_association(:country)
+    expect(t.macro).to eq(:belongs_to)
+  end
+
+
   describe '#country' do
     it 'can\'t be blank' do
       expect(FactoryGirl.build(:step, country: nil)).to_not be_valid

@@ -1,0 +1,7 @@
+<div class="exp-card">
+  <div class="exp-card-cover" style="background-image:  url(<%= cl_image_path experience.cover.path %>)"></div>
+  <div class="exp-card-infos">
+    <p><span class="exp-card-infos-price"><%= humanized_money_with_symbol(experience.price, symbol_position: :after, symbol_after_without_space: true) %></span><%= truncate(experience.title, length: 25) %></p>
+    <p><%= display_rating((rand * 5).round(2)).html_safe %></p>
+  </div>
+</div>

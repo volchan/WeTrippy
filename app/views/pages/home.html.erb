@@ -1,2 +1,21 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="home">
+  <div class="home-banner">
+    <div class="home-banner-logo text-shadow">
+      WeTrippy
+    </div>
+    <div class="home-banner-slogan text-shadow">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    </div>
+  </div>
+  <div class="home-top-exp">
+    <div class="container">
+      <div class="row">
+        <% @experiences.each do |experience| %>
+          <div class="col-sm-6 col-lg-4 col-xl-3">
+            <%= render 'experiences/experience_card', experience: experience %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

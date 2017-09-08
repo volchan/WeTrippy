@@ -5,6 +5,7 @@ gem 'attachinary', github: 'assembler/attachinary'
 gem 'cloudinary'
 gem "coffee-rails"
 gem 'devise'
+gem 'faker'
 gem 'figaro'
 gem 'geocoder'
 gem "gmaps4rails"
@@ -17,6 +18,7 @@ gem 'phony_rails'
 gem 'puma'
 gem 'rails'
 gem 'redis'
+gem 'rest-client'
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
@@ -34,7 +36,6 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'factory_girl_rails', '~> 4.0'
-  gem 'faker'
   gem 'listen', '~> 3.0.5'
   gem 'pry-byebug'
   gem 'pry-rails'

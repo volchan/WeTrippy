@@ -1,7 +1,8 @@
 class Experience < ApplicationRecord
-  has_many :steps
-  has_many :appointments
-  has_many :exp_languages
+  has_many :steps, dependent: :destroy
+  has_many :appointments, dependent: :destroy
+  has_many :exp_languages, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   belongs_to :host, class_name: :User, foreign_key: :host_id
   belongs_to :category
@@ -17,4 +18,13 @@ class Experience < ApplicationRecord
   has_attachments :photos, maximum: 4
 
   monetize :price_cents
+
+  def rate
+    rate = 0
+    all_comments = comments
+    all_comments.each do |comment|
+      rate += comment.rating
+    end
+    rate / all_comments.count
+  end
 end

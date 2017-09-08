@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :user_languages, dependent: :destroy
   has_many :appointments, dependent: :destroy
   has_many :hosted_experiences, foreign_key: :host_id, class_name: :Experience, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   belongs_to :country
 
@@ -26,5 +27,9 @@ class User < ApplicationRecord
   def password_complexity
     return unless password.present? && !password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(_|[^\w])).+$/)
     errors.add :password, 'must be 6 character long, must include at least one lowercase letter, one uppercase letter, one digit and one special character'
+  end
+
+  def full_name
+    "#{first_name.capitalize} #{last_name.upcase}"
   end
 end
