@@ -19,12 +19,12 @@ class Experience < ApplicationRecord
 
   monetize :price_cents
 
-  def rate
+  def rating
     rate = 0
     all_comments = comments
     all_comments.each do |comment|
       rate += comment.rating
     end
-    rate / all_comments.count
+    rate.fdiv(all_comments.count)
   end
 end
