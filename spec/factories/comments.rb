@@ -3,6 +3,6 @@ FactoryGirl.define do
     user
     experience
     rating 1
-    comment "a" * 250
+    comment 'a' * 250
   end
 end

@@ -295,6 +295,7 @@ DEPENDENCIES
   rails
   rails-assets-underscore!
   redis
+  rest-client
   rspec-rails
   sass-rails
   simple_form
