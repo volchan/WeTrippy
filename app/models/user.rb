@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :user_languages, dependent: :destroy
   has_many :appointments, dependent: :destroy
   has_many :hosted_experiences, foreign_key: :host_id, class_name: :Experience, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   belongs_to :country
 

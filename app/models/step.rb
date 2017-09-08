@@ -8,8 +8,8 @@ class Step < ApplicationRecord
   validates :start_at, presence: true
   validates :end_at, presence: true
   validates :address, presence: true
-  validates :country, presence: true
   validates :experience, presence: true
+  validates :country, presence: true
 
   validate :check_start_time
   validate :check_end_time
