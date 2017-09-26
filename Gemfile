@@ -3,12 +3,13 @@ ruby '2.3.3'
 
 gem 'attachinary', github: 'assembler/attachinary'
 gem 'cloudinary'
-gem "coffee-rails"
+gem 'coffee-rails'
 gem 'devise'
 gem 'faker'
 gem 'figaro'
 gem 'geocoder'
-gem "gmaps4rails"
+gem 'gmaps4rails'
+gem 'haml-rails'
 gem 'i18n_data'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-fileupload-rails'
@@ -21,7 +22,7 @@ gem 'redis'
 gem 'rest-client'
 
 source 'https://rails-assets.org' do
-  gem "rails-assets-underscore"
+  gem 'rails-assets-underscore'
 end
 
 gem 'autoprefixer-rails'

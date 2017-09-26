@@ -8,12 +8,9 @@
     align-items: center;
     justify-content: flex-start;
     &-logo {
-      svg {
-        width: 20%;
-        height: 20%;
-      }
-      path {
-        fill: blue;
+      .navbar-logo {
+        font-family: $logo-font;
+        font-size: 1.563rem; /* 25/16 */
       }
     }
   }

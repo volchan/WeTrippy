@@ -1,0 +1,10 @@
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  flex-direction: column;
+  &-logo {
+    font-family: $logo-font;
+    font-size: 9.125rem; /* 146/16 */
+  }
+}
