@@ -1,21 +1,22 @@
-<div class="home">
-  <div class="home-banner">
-    <div class="home-banner-logo text-shadow">
-      WeTrippy
+<div class="home-banner">
+  <div class="home-banner-title">
+    <%= raw inline_svg('logo') %>
+  </div>
+  <div class="home-banner-slogan">
+    <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
+  </div>
+</div>
+<div class="home-project">
+  <div class="home-project-left">
+    <div class="home-project-left-top">
+      <%= image_tag 'http://via.placeholder.com/250x200' %>
     </div>
-    <div class="home-banner-slogan text-shadow">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    <div class="home-project-left-bottom">
+      <%= image_tag 'http://via.placeholder.com/250x200' %>
     </div>
   </div>
-  <div class="home-top-exp">
-    <div class="container">
-      <div class="row">
-        <% @experiences.each do |experience| %>
-          <div class="col-sm-6 col-lg-4 col-xl-3">
-            <%= render 'experiences/experience_card', experience: experience %>
-          </div>
-        <% end %>
-      </div>
-    </div>
+  <div class="home-project-right">
+    <div class="home-project-right-top"></div>
+    <div class="home-project-right-bottom"></div>
   </div>
 </div>
